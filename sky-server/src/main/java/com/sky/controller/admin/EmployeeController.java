@@ -62,7 +62,7 @@ public class EmployeeController {
         return Result.success(employeeLoginVO);
     }
 
-    @PostMapping("/save")
+    @PostMapping()
     public Result save(@RequestBody EmployeeDTO employeeDTO) {
         log.info("员工注册：{}", employeeDTO);
         employeeService.save(employeeDTO);
