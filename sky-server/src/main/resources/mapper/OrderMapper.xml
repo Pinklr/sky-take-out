@@ -13,4 +13,23 @@
                 #{payStatus}, #{amount}, #{remark}, #{phone}, #{address}, #{consignee},
                 #{estimatedDeliveryTime}, #{deliveryStatus}, #{packAmount}, #{tablewareNumber}, #{tablewareStatus})
     </insert>
+    <update id="update">
+        update orders
+        set status = #{status}, cancel_reason = #{cancelReason}
+        where id = #{id}
+    </update>
+
+
+
+
+
+    <select id="list" resultType="com.sky.entity.Orders">
+        select * from orders
+        <where>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+                and user_id = #{userId}
+        </where>
+    </select>
 </mapper>
